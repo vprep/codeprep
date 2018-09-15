@@ -1,0 +1,15 @@
+.settings
+.classpath
+.project
+/target/
+/build/
+/.idea/
+/.gradle/
+/gradle/
+*.log
+*.epoch
+*.lck
+*.iml
+out/
+*.MF
+*.pdf
