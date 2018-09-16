@@ -1,12 +1,12 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.5.RELEASE'
-	}
+
 	repositories {
 		mavenCentral()
+		maven { url 'http://repo.spring.io/snapshot' }
+		maven { url 'http://repo.spring.io/milestone' }
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.BUILD-SNAPSHOT")
 	}
 }
 
@@ -18,9 +18,14 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.vprep'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+ext["thymeleaf.version"] = "3.0.2.RELEASE"
+ext["thymeleaf-layout-dialect.version"] = "2.1.1"
 
 repositories {
 	mavenCentral()
+	maven { url 'http://repo.spring.io/snapshot' }
+	maven { url 'http://repo.spring.io/milestone' }
 }
 
 
@@ -29,4 +34,17 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.security:spring-security-test')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile group: 'org.webjars', name: 'bootstrap', version: '4.0.0-alpha.2'
+	compile group: 'org.webjars', name: 'jquery', version: '3.2.1'
+	compile group: 'org.webjars', name: 'webjars-locator'
+	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.1.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context-support', version: '3.2.0.RELEASE'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
+	compile group: 'net.sf.ehcache', name: 'ehcache', version:'2.10.2'
+	runtime("org.springframework.boot:spring-boot-devtools")
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.0.5.RELEASE'
+
 }

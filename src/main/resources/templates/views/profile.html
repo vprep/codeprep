@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<title>CodePrep|Profile</title>
+</head>
+<body>
+
+	<div layout:fragment="content" class="container mySpace">
+
+		<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+						<tr>
+							<th>UserName:</th>
+							<td th:text="${user.userName}"></td>
+						</tr>
+						<tr>
+							<th>First Name:</th>
+							<td th:text="${user.firstName}"></td>
+						</tr>
+						<tr>
+							<th>Last Name:</th>
+							<td th:text="${user.lastName}"></td>
+						</tr>
+						<tr>
+						<th>Email Id:</th>
+							<td th:text="${user.email}"></td>
+						</tr>
+					<tr>
+						<th>Phone Number:</th>
+						<td th:text="${user.phoneNumber}"></td>
+					</tr>
+					<tr>
+						<th>Status:</th>
+						<td th:text="Active"></td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
