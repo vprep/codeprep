@@ -23,7 +23,7 @@ public class UserService {
 	
 	public void createUser(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		user.setPassword(encoder.encode(user.getPassword())); 
+		user.setPassword(encoder.encode(user.getPassword()));
 		Role userRole = new Role("USER");
 		List<Role> roles = new ArrayList<>();
 		roles.add(userRole);

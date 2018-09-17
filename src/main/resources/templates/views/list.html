@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{fragments/main_layout}">
 <head>
-<title>Index Page</title>
+<title>CodePrep|Users</title>
 </head>
 <body>
 
@@ -19,15 +19,19 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Name</th>
+							<th>First Name</th>
+							<th>Last Name</th>
 							<th>Email</th>
+							<th>User Type</th>
 							<th>Add</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="user:${users}">
-							<td th:text="${user.name}"></td>
+							<td th:text="${user.firstName}"></td>
+							<td th:text="${user.lastName}"></td>
 							<td th:text="${user.email}"></td>
+							<td th:text="${user.name}"></td>
 						</tr>
 					</tbody>
 
