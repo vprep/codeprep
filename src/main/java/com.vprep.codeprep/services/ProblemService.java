@@ -1,0 +1,52 @@
+package com.vprep.codeprep.services;
+
+import com.vprep.codeprep.aws.s3.S3Component;
+import com.vprep.codeprep.dao.ProblemDAO;
+import com.vprep.codeprep.vo.ProblemVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.List;
+
+@Service
+public class ProblemService {
+
+    @Autowired
+    private ProblemDAO problemDAO;
+
+
+    @Autowired
+    private S3Component s3Component;
+
+    private String QUE_S3_LOCATION = "com.codeprep.questions/que_";
+
+    private String key = "details_";
+
+
+    public ProblemVO getProblemById(Long id) throws IOException {
+        ProblemVO problemVO = problemDAO.fetchProblemById(id);
+
+        String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
+        String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
+        problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+        return problemVO;
+    }
+
+    public List<ProblemVO> getAllProblems() throws IOException{
+       List<ProblemVO> problemVOList =  problemDAO.fetchAllProblems();
+       for (ProblemVO problemVO: problemVOList){
+           String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
+           String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
+           problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+           String url = "/problem?id="+String.valueOf(problemVO.getCodeQuestionId());
+           problemVO.setPageUrl(url);
+       }
+       return problemVOList;
+    }
+
+    public String readS3File() throws IOException {
+       return s3Component.readFromS3(QUE_S3_LOCATION,key);
+    }
+
+}

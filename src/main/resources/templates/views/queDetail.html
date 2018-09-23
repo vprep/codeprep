@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>CodePrep|Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div layout:fragment="content" class="container mySpace">
+    <div class="container">
+        <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="background-color: gray;color: #ffffff;">
+                            <span th:text="${problem.title}"></span>
+                        </div>
+                        <div class="panel-body">
+                            <span id="test1" th:text="${problem.queContent}"/>
+                                <script>
+                                    console.log($("#test1")[0].innerHTML);
+                                    $("#test1").html(jQuery.parseHTML($("#test1")[0].innerHTML)[0].data)</script>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

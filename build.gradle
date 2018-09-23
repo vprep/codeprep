@@ -46,6 +46,6 @@ dependencies {
 	compile group: 'net.sf.ehcache', name: 'ehcache', version:'2.10.2'
 	runtime("org.springframework.boot:spring-boot-devtools")
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.0.5.RELEASE'
-	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.242'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.414'
 
 }
