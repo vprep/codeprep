@@ -20,9 +20,9 @@ public class ProblemController {
 
     @RequestMapping(value = "problem",method = RequestMethod.GET)
     public String getProblemById(Model model, @RequestParam Long id) throws IOException {
-        ProblemVO problemVO = problemService.getProblemById(id);
-        model.addAttribute("problem", problemVO);
-        return "views/queDetail";
+        model.addAttribute("problem", problemService.getProblemById(id));
+        model.addAttribute("submissionList",problemService.getAllSubmissionByUserId(1l));
+        return "views/hackathon";
     }
 
 

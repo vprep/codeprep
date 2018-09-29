@@ -2,7 +2,9 @@ package com.vprep.codeprep.services;
 
 import com.vprep.codeprep.aws.s3.S3Component;
 import com.vprep.codeprep.dao.ProblemDAO;
+import com.vprep.codeprep.dao.SolutionDAO;
 import com.vprep.codeprep.vo.ProblemVO;
+import com.vprep.codeprep.vo.SubmissionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class ProblemService {
 
     @Autowired
     private ProblemDAO problemDAO;
+
+    @Autowired
+    private SolutionDAO solutionDAO;
 
 
     @Autowired
@@ -43,6 +48,10 @@ public class ProblemService {
            problemVO.setPageUrl(url);
        }
        return problemVOList;
+    }
+
+    public List<SubmissionVO> getAllSubmissionByUserId(Long userId) throws IOException {
+        return solutionDAO.fetchAllSubmissionByUserId(userId);
     }
 
     public String readS3File() throws IOException {

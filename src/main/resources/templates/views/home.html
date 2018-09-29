@@ -18,12 +18,12 @@
 
         <div class="col-sm-4" th:each="problem : ${problemList}">
             <div class="col-sm-2">
-                <img th:src="@{css/images/Logo.png}" alt="Smiley face" style="width: 1.03in;height: 0.91in;background-color: black;">
+                <img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 0.91in;background-color: #3f3e3b;">
             </div>
             <div class="col-sm-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: gray;color: #ffffff;"><a  th:href="${problem.pageUrl}"><span th:text="${problem.title}"></span></a></div>
-                    <div class="panel-body"><span th:text="${problem.queContent}"></span></div>
+                    <div class="panel-heading" style="background-color: white;color: #black;"><a  th:href="${problem.pageUrl}"><span th:text="${problem.title}"></span></a></div>
+                    <div class="panel-body"><a  th:href="${problem.pageUrl}"><span>Solve Challenge </span></a></div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,171 @@
+
+.upsnap-primary {
+    background-color: #666699;
+}
+
+.upsnap-secondary {
+    background-color: #8d6899;
+}
+
+.navy-blue {
+    background-color: #666699;
+}
+
+.upper-navbar {
+    margin-bottom: 0px;
+}
+
+.agency-btn, .advertiser-btn, .campaign-btn, .report-btn, .user-btn {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.save-btn {
+    background-color: #666699;
+}
+
+.upsnap-btn {
+    border: none;
+    color: #ffffff;
+    background-color: #666699;
+}
+
+.upsnap-btn:hover {
+    color: #666699;
+    background-color: #ffffff;
+}
+
+.resume-btn {
+    background-color: #666699;
+}
+
+.agency-logo-btn {
+    background-color: cornflowerblue;
+}
+
+.agency-logo {
+    width: 270px;
+    height: 112px;
+}
+
+.agency-favicon {
+    width: 16px;
+    height: 16px;
+}
+
+.save-btn:hover {
+    background-color: #8d6899;
+}
+
+.direct-mail-btn, .caller-analytics-btn {
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: #666699;
+}
+
+.container {
+    min-height: 60vh;
+}
+
+.grey-bg {
+    background-color: grey;
+}
+
+.width-1 {
+    width: 50vh;
+}
+
+td, tr {
+    padding-top: 30px;
+}
+
+input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.width-2 {
+    width: 120vh;
+}
+
+.login-form {
+    padding-top: 15vh;
+    padding-left: 60vh;
+}
+
+tr, td {
+    border: 1px solid #ccc;
+}
+
+.grey-first-column tr td {
+    padding: 1px 3px;
+    height: 15px;
+}
+
+.grey-first-column tr td:nth-child(odd) {
+    background-color: grey;
+    font-weight: bold;
+}
+
+table {
+    border-spacing: 2px;
+    border-collapse: separate;
+    width: 1142px;
+}
+
+.inner-text {
+    height: 38px;
+    width: 100%;
+}
+
+.upsnap-default {
+    color: #8d6899;
+    border: none;
+    background-color: #ffffff;
+}
+
+.upsnap-hover:hover {
+    color: #ffffff;
+    background-color: #666699;
+}
+
+.current-hover:hover {
+    color: #666699;
+    background-color: #ffffff;
+}
+
+.pagination > li.active > a {
+    color: #ffffff;
+    background-color: #666699;
+}
+
+.pagination > li.active > a:hover {
+    background-color: #8d6899;
+}
+
+.circle-tab {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 204%;
+
+    -moz-border-radius: 30px;
+    border-radius: 25px;
+
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+}
+
+.include-tab {
+    background-color: green;
+}
+
+.exclude-tab {
+    background-color: red;
+}
+
+
+
+
