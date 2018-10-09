@@ -13,18 +13,19 @@ public class DomainToVOConverter {
 
 
     public static ProblemVO convertCodeQuestion(CodeQuestion codeQuestion) {
+        ProblemVO problemVO = null;
+        if(codeQuestion != null) {
+            problemVO = new ProblemVO();
 
-        ProblemVO problemVO = new ProblemVO();
-
-        problemVO.setCodeQuestionId(codeQuestion.getId());
-        problemVO.setTitle(codeQuestion.getTitle());
-        problemVO.setDetail(codeQuestion.getDetail());
-        problemVO.setStartDate(codeQuestion.getStartDate());
-        problemVO.setEndDate(codeQuestion.getEndDate());
-        problemVO.setInputFile(codeQuestion.getInputFile());
-        problemVO.setOutputFile(codeQuestion.getOutputFile());
+            problemVO.setCodeQuestionId(codeQuestion.getId());
+            problemVO.setTitle(codeQuestion.getTitle());
+            problemVO.setDetail(codeQuestion.getDetail());
+            problemVO.setStartDate(codeQuestion.getStartDate());
+            problemVO.setEndDate(codeQuestion.getEndDate());
+            problemVO.setInputFile(codeQuestion.getInputFile());
+            problemVO.setOutputFile(codeQuestion.getOutputFile());
+        }
         return problemVO;
-
     }
 
     public static SubmissionVO convertCodeSubmission(CodeSubmission codeSubmission, String submittedCode){

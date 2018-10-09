@@ -13,7 +13,10 @@ import java.util.List;
 public class User {
 
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "user_id")
+	@Column(name = "id", nullable = false, updatable = false)
+	private Long id;
 	private String userName;
 	private String firstName;
 	private String lastName;
@@ -22,19 +25,17 @@ public class User {
 	@Column(columnDefinition = "boolean default false", name = "enabled")
 	private boolean isActive;
 
-	@Id
 	@Email
 	@NotEmpty
 	@Column(unique = true)
 	private String email;
-	@NotEmpty
-	private String name;
+
 	@Size(min = 4)
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "USER_ROLES", joinColumns={
-			@JoinColumn(name = "USER_EMAIL", referencedColumnName = "email") }, inverseJoinColumns = {
+			@JoinColumn(name = "USER_ID", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
 	private List<Role> roles;
 
@@ -46,14 +47,6 @@ public class User {
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -62,6 +55,14 @@ public class User {
 		this.password = password;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public User setId(Long id) {
+		this.id = id;
+		return this;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -116,14 +117,13 @@ public class User {
 		this.roles = roles;
 	}
 
-	public User(String userName, String firstName, String lastName, String phoneNumber, boolean isActive, String email, String name, String password) {
+	public User(String userName, String firstName, String lastName, String phoneNumber, boolean isActive, String email, String password) {
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.isActive = isActive;
 		this.email = email;
-		this.name = name;
 		this.password = password;
 	}
 

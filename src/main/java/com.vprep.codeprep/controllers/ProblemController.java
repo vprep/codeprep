@@ -2,6 +2,7 @@ package com.vprep.codeprep.controllers;
 
 import com.vprep.codeprep.services.ProblemService;
 import com.vprep.codeprep.vo.ProblemVO;
+import com.vprep.codeprep.vo.SubmissionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,12 @@ public class ProblemController {
     @RequestMapping(value = "read",method = RequestMethod.GET)
     public String readS3File() throws IOException {
         return problemService.readS3File();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "solution",method = RequestMethod.GET)
+    public SubmissionVO getSolutionById(@RequestParam Long id) throws IOException {
+        return problemService.getSubmissionbyId(id);
     }
 
 

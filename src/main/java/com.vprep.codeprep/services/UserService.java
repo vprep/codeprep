@@ -41,10 +41,10 @@ public class UserService {
 		} else {
 			role = new Role();
 			role.setName("SUPER_ADMIN");
-			roles.add(roleRepository.save(role));
+			roles.add(role);
 		}
 		user.setRoles(roles);
-		userRepository.save(user);
+		//userRepository.save(user);
 	}
 	
 	public User findOne(String email) {
@@ -66,9 +66,9 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public List<User> findByName(String name) {
+	/*public List<User> findByName(String name) {
 		// TODO Auto-generated method stub
 		return  userRepository.findByNameLike("%"+name+"%");
-	}
+	}*/
 
 }

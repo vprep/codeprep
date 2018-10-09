@@ -33,8 +33,18 @@ public class SolutionDAO {
         for(CodeSubmission codeSubmission: codeSubmissionList){
             String solLocation= SOL_S3_LOCATION+String.valueOf(codeSubmission.getCodeQuestionId());
             String solKey = key+String.valueOf(userId)+".txt";
+        //    submissionVOList.add(DomainToVOConverter.convertCodeSubmission(codeSubmission,"mocked sol"));
             submissionVOList.add(DomainToVOConverter.convertCodeSubmission(codeSubmission,s3Component.readFromS3(solLocation,solKey)));
         }
         return submissionVOList;
+    }
+
+
+    public SubmissionVO fetchSubmissionById(Long subId) throws IOException {
+
+        CodeSubmission codeSubmission = codeSubmissionRepository.findOne(subId);
+        String solLocation= SOL_S3_LOCATION+String.valueOf(codeSubmission.getCodeQuestionId());
+        String solKey = key+String.valueOf(subId)+".txt";
+        return DomainToVOConverter.convertCodeSubmission(codeSubmission,s3Component.readFromS3(solLocation,solKey));
     }
 }

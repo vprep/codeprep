@@ -10,7 +10,7 @@ public class Role {
 
 	@Id
 	private String name;
-	@ManyToMany(mappedBy = "roles")
+	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
 	private List<User> users;
 
 	public String getName() {

@@ -25,7 +25,7 @@ public class CodePrepInitializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		  {
-    		  User newAdmin = new User("admin_user","admin","codeprep","123456789",true,"admin@mail.com", "SUPER_ADMIN", "123456");
+    		  User newAdmin = new User("admin_user","admin","codeprep","123456789",true,"admin@mail.com", "123456");
     		  userService.createAdmin(newAdmin);
     	  }
 	}

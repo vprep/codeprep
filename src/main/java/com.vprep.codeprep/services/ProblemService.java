@@ -31,12 +31,28 @@ public class ProblemService {
 
     public ProblemVO getProblemById(Long id) throws IOException {
         ProblemVO problemVO = problemDAO.fetchProblemById(id);
-
-        String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
-        String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
-        problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+        if(problemVO != null) {
+            String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
+            String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
+                  problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+         //   problemVO.setQueContent("mocked que");
+        }
         return problemVO;
     }
+
+
+
+    /*public ProblemVO getProblemByEmail(String email) throws IOException {
+        ProblemVO problemVO = null;
+        if(problemVO != null) {
+            problemVO = problemDAO.fetchProblemById(id);
+            String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
+            String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
+            //      problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+            problemVO.setQueContent("mocked que");
+        }
+        return problemVO;
+    }*/
 
     public List<ProblemVO> getAllProblems() throws IOException{
        List<ProblemVO> problemVOList =  problemDAO.fetchAllProblems();
@@ -44,6 +60,7 @@ public class ProblemService {
            String queLocation= QUE_S3_LOCATION+String.valueOf(problemVO.getCodeQuestionId());
            String queKey = key+String.valueOf(problemVO.getCodeQuestionId())+".txt";
            problemVO.setQueContent(s3Component.readFromS3(queLocation,queKey));
+         //  problemVO.setQueContent("mocked content");
            String url = "/problem?id="+String.valueOf(problemVO.getCodeQuestionId());
            problemVO.setPageUrl(url);
        }
@@ -56,6 +73,11 @@ public class ProblemService {
 
     public String readS3File() throws IOException {
        return s3Component.readFromS3(QUE_S3_LOCATION,key);
+    }
+
+    public SubmissionVO getSubmissionbyId(Long subId) throws IOException {
+
+        return solutionDAO.fetchSubmissionById(subId);
     }
 
 }

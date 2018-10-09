@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{fragments/main_layout}">
-<object th:include="html/common/_resourceCommon :: head" th:remove="tag"/>
+
 <head>
     <title>CodePrep|Hackathon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script th:src="${'/js/hackathon.js'}"></script>
     <style>
         body {font-family: Arial;}
 
@@ -87,59 +88,49 @@
         </p>
     </div>
 
-    <div id="Paris" class="tabcontent">
+    <div id="Paris" class="tabcontent" style="padding: 2%;">
         <div class="row panel panel-default">
-            <div class="panel-body" id="submissionWidget" style="width: 100%;">
-                <div class="row-fluid">
-                    <div id="searchContainer">
-                        <table id="submissionDetail"
-                               class="table table-striped table-bordered table-condensed table-hover custom-table"
-                               cellspacing="0" width="100%">
-                            <thead>
-                            <tr>
-                                <th>Solution Id</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Time Taken</th>
-                                <th>Check Solution</th>
-                            </tr>
-                            <tr th:each="submission : ${submissionList}">
-                                <td th:text="${submission.codeSubmissionId}"></td>
-                                <td th:text="${submission.submittedDate}"></td>
-                                <td>Success</td>
-                                <td>10 min</td>
-                                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Solution</button></td>
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog">
+            <div class="panel-body">
+                <div class="table-responsive" id="searchContainer">
+                    <table id="reviewRatingTable"
+                           class="table table-striped table-bordered table-condensed table-hover custom-table"
+                           cellspacing="0" width="100%">
+                        <thead>
+                        <th>Solution Id</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Time Taken</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Modal Header</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <span th:text="${submission.submittedCode}"></span>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
+    <button id="popUpId" style="display: none;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-                                    </div>
-                                </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="solDisplayId"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
-
         </div>
     </div>
+
 
 </div>
 
