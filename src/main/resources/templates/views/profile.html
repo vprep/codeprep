@@ -9,7 +9,43 @@
 		.form-control {
 			width: 80%;
 		}
+		#showPassword {
+			position:absolute;
+			right: 0px;
+			top: 4px;
+			border:none;
+			height:20px;
+			width:20px;
+			border-radius:100%;
+			outline:none;
+			padding:2px;
+		}
 	</style>
+	<script>
+        $(document).ready(function () {
+            var password = document.getElementById("password")
+                , confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword() {
+                if ($("#password").val() == $("#confirm_password").val()) {
+                    $("#pwmatch").removeClass("glyphicon-remove");
+                    $("#pwmatch").addClass("glyphicon-ok");
+                    $("#pwmatch").css("color", "#00A41E");
+                } else {
+                    $("#pwmatch").removeClass("glyphicon-ok");
+                    $("#pwmatch").addClass("glyphicon-remove");
+                    $("#pwmatch").css("color", "#FF0004");
+                }
+            }
+
+            if (password != null) {
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+            }
+        });
+
+	</script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
 
@@ -27,7 +63,7 @@
 						<!-- SIDEBAR USER TITLE -->
 						<div class="profile-usertitle">
 							<div class="profile-usertitle-name">
-								Emma Watson
+								<span th:text="${profileVO.name}"></span>
 							</div>
 							<div class="profile-usertitle-job">
 								Developer
@@ -44,19 +80,19 @@
 						<div class="profile-usermenu">
 							<ul class="nav">
 								<li >
-									<span>Description</span>
+									<span th:text="${profileVO.address}"></span>
 								</li>
 								<li >
-									<span>mail Id</span>
+									<span th:text="${profileVO.email}"></span>
 								</li>
 								<li >
-									<span>Phone Number</span>
+									<span th:text="${profileVO.phone}"></span>
 								</li>
 								<li >
-									<span>City</span>
+									<span th:text="${profileVO.city}"></span>
 								</li>
 								<li >
-									<span>Country</span>
+									<span th:text="${profileVO.state}"></span>
 								</li>
 							</ul>
 						</div>
@@ -65,40 +101,47 @@
 				</div>
 				<div class="col-md-9">
 					<div class="profile-content">
+						<form class="pure-form" method="POST" enctype="multipart/form-data" action="/profile/save">
 						<div class="form-group">
-							<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name.">
+							<input type="text" class="form-control" th:value="${profileVO.name}" name="name" id="name" placeholder="name" title="enter your name.">
 
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+							<input type="text" class="form-control" th:value="${profileVO.phone}" name="contact_number" id="contact_number" placeholder="contact number" title="enter your contact number">
 
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="contact_number" id="contact_number" placeholder="contact number" title="enter your contact number">
+							<input type="text" class="form-control" th:value="${profileVO.email}" name="email_id" id="email_id" placeholder="email id" title="enter your emailId">
 
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="email_id" id="email_id" placeholder="email id" title="enter your emailId">
+							<input type="text" class="form-control" th:value="${profileVO.engineeringCollegeId}" name="institute_name" id="institute_name" placeholder="Institute/Company Name" title="enter your institute/company name">
 
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="institute_name" id="institute_name" placeholder="Institute/Company Name" title="enter your institute/company name">
+							<input type="text" class="form-control" th:value="${profileVO.address}" name="description" id="description" placeholder="description" title="enter your description">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" th:value="${profileVO.city}" name="city" id="country" placeholder="city" title="enter your city">
+						</div>
+						<fieldset>
 
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="description" id="description" placeholder="description" title="enter your description">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="country" id="country" placeholder="country" title="enter your country">
-						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password">
-						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm password" title="enter your confirm password">
-							<button  style="width: 10%;padding: 0%;float: right;background: white;" class="btn" type="submit">
-								<img th:src="@{css/images/Save-Icon.png}" alt="Smiley face" style="width: 0.57in;height: 0.57in;"></button>
-						</div>
+							<div class="form-group">
+								<input type="password" class="form-control"   name="password" id="password" placeholder="password" title="enter your password">
+							</div>
+							<div class="form-group" style="position: relative;">
+								<div class="buttonInside">
+									<input type="password" class="form-control"   name="confirm_password" id="confirm_password" placeholder="confirm password" title="enter your confirm password">
+									<span id="showPassword"><span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span></span>
+								</div>
+
+								<button  style="width: 10%;padding: 0%;float: right;background: white;" class="btn" type="submit">
+									<img th:src="@{css/images/Save-Icon.png}" alt="Smiley face" style="width: 0.57in;height: 0.57in;"></button>
+							</div>
+						</fieldset>
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+						</form>
+
 
 					</div>
 				</div>

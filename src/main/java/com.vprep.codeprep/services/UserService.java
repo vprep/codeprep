@@ -1,13 +1,16 @@
 package com.vprep.codeprep.services;
 
 
+import com.vprep.codeprep.dao.UserDAO;
 import com.vprep.codeprep.entities.Role;
 import com.vprep.codeprep.entities.User;
 import com.vprep.codeprep.repositories.RoleRepository;
 import com.vprep.codeprep.repositories.UserRepository;
+import com.vprep.codeprep.vo.ProfileVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,9 @@ public class UserService {
 
 	@Autowired
 	private RoleRepository roleRepository;
+
+	@Autowired
+	private UserDAO userDAO;
 	
 	public void createUser(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -44,7 +50,7 @@ public class UserService {
 			roles.add(role);
 		}
 		user.setRoles(roles);
-		//userRepository.save(user);
+//		userRepository.save(user);
 	}
 	
 	public User findOne(String email) {
@@ -64,6 +70,37 @@ public class UserService {
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
 		return userRepository.findAll();
+	}
+
+	public ProfileVO getLoggedInProfile(String email){
+
+		return userDAO.fetchUserByEmail(email);
+	}
+
+	public ProfileVO saveProfile(MultipartHttpServletRequest request, User user){
+		String name = request.getParameter("name");
+		String phone = request.getParameter("contact_number");
+		String email = request.getParameter("email_id");
+		String institute = request.getParameter("institute_name");
+		String address = request.getParameter("description");
+		String city = request.getParameter("city");
+		String country = request.getParameter("country");
+		String password = request.getParameter("password");
+		String confirmPassword = request.getParameter("confirm_password");
+
+		if(user == null){
+			user = new User();
+		}
+		user.setName(name);
+		user.setPhone(phone);
+		user.setEmail(email);
+		user.setAddress(address);
+		user.setCity(city);
+		if( password != null && password.length() > 1 && password.equals(confirmPassword)){
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			user.setPassword(encoder.encode(password));
+		}
+		return userDAO.saveProfile(user);
 	}
 
 	/*public List<User> findByName(String name) {
