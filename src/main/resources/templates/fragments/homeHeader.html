@@ -169,6 +169,9 @@
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#navbar-toggle').click(function () {
@@ -186,7 +189,33 @@ border-radius: 130px;" >
     </div>
     <div style="position: absolute; top: 25%; left: 5%;">
         <h1 style="color: #FFFFFF">Practice Coding &</h1>
-        <h1 style="color: #FFFFFF">Beacome A Pro Programmer</h1>
+        <h1 style="color: #FFFFFF">Become A Pro Programmer</h1>
+    </div>
+    <div class="container">
+    <div class="panel panel-default" style="position: absolute; top: 60%; left: 5%; padding: 0px;">
+        <div class="panel-heading" style="color: #black; padding: 0px;"><a  href="#"><span style="color: black;">Can You Solve This Challenge</span></a></div>
+        <div class="panel-body" style="padding: 0px;">
+            <div class="col-sm-12" style="padding: 0px;">
+                <div class="col-sm-2" style="padding: 0px;">
+                    <img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;background-color: #3f3e3b;">
+                </div>
+                <div class="col-sm-10" style="padding: 0px;">
+                    <div class="panel panel-default" style="margin-left: 9%;width: 205px;height: 1.0in;">
+                        <div class="panel-heading" style="background-color: white;color: #black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;"><span style="color: black;">Facing weird problem lately tried.</span></div>
+                        <div class="panel-body"><span style="color: black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;">
+                        <p style="overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;">Description: </p>
+                            <p style="overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;">Peter wants to generate some prime numbers for his cryptosystem. Help him! Your task is to generate all prime numbers between two given numbers!</p>
+                        </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
     <div style="position: absolute;top: 2%;left: 50%;">
        <!-- <ul>
@@ -196,7 +225,7 @@ border-radius: 130px;" >
             <li class="four"><a href="#">Pricing</a></li>
             <li class="five"><a href="#">Login/Sign Up</a></li>
         </ul>-->
-       <a  href="#home"><span>Home</span></a>
+       <a  href="/"><span>Home</span></a>
         <a href="#practice"><span>Practice Coding</span></a>
         <a href="#learn"><span>Learn Programming</span></a>
         <a href="#price"><span>Pricing</span></a>
