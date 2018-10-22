@@ -50,7 +50,11 @@ public class UserService {
 			roles.add(role);
 		}
 		user.setRoles(roles);
-//		userRepository.save(user);
+		User user1 = userRepository.findByEmail("admin@vprep.in");
+		if(user1 == null){
+			userRepository.save(user);
+		}
+
 	}
 	
 	public User findOne(String email) {
