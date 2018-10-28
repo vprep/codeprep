@@ -166,12 +166,338 @@
             transition: background 0.5s;
         }
 
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+        }
+
+        .card-block {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .card-subtitle {
+            margin-top: -0.375rem;
+            margin-bottom: 0;
+        }
+
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+        }
+
+        .card-link + .card-link {
+            margin-left: 1.25rem;
+        }
+
+        .card > .list-group:first-child .list-group-item:first-child {
+            border-top-right-radius: 0.25rem;
+            border-top-left-radius: 0.25rem;
+        }
+
+        .card > .list-group:last-child .list-group-item:last-child {
+            border-bottom-right-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+
+        .card-header {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: #f7f7f9;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        .card-header:first-child {
+            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        }
+
+        .card-footer {
+            padding: 0.75rem 1.25rem;
+            background-color: #f7f7f9;
+            border-top: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        .card-footer:last-child {
+            border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+        }
+
+        .card-header-tabs {
+            margin-right: -0.625rem;
+            margin-bottom: -0.75rem;
+            margin-left: -0.625rem;
+            border-bottom: 0;
+        }
+
+        .card-header-pills {
+            margin-right: -0.625rem;
+            margin-left: -0.625rem;
+        }
+
+        .card-primary {
+            background-color: #0275d8;
+            border-color: #0275d8;
+        }
+
+        .card-primary .card-header,
+        .card-primary .card-footer {
+            background-color: transparent;
+        }
+
+        .card-success {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+
+        .card-success .card-header,
+        .card-success .card-footer {
+            background-color: transparent;
+        }
+
+        .card-info {
+            background-color: #5bc0de;
+            border-color: #5bc0de;
+        }
+
+        .card-info .card-header,
+        .card-info .card-footer {
+            background-color: transparent;
+        }
+
+        .card-warning {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+
+        .card-warning .card-header,
+        .card-warning .card-footer {
+            background-color: transparent;
+        }
+
+        .card-danger {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
+
+        .card-danger .card-header,
+        .card-danger .card-footer {
+            background-color: transparent;
+        }
+
+        .card-outline-primary {
+            background-color: transparent;
+            border-color: #0275d8;
+        }
+
+        .card-outline-secondary {
+            background-color: transparent;
+            border-color: #ccc;
+        }
+
+        .card-outline-info {
+            background-color: transparent;
+            border-color: #5bc0de;
+        }
+
+        .card-outline-success {
+            background-color: transparent;
+            border-color: #5cb85c;
+        }
+
+        .card-outline-warning {
+            background-color: transparent;
+            border-color: #f0ad4e;
+        }
+
+        .card-outline-danger {
+            background-color: transparent;
+            border-color: #d9534f;
+        }
+
+        .card-inverse {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .card-inverse .card-header,
+        .card-inverse .card-footer {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card-inverse .card-header,
+        .card-inverse .card-footer,
+        .card-inverse .card-title,
+        .card-inverse .card-blockquote {
+            color: #fff;
+        }
+
+        .card-inverse .card-link,
+        .card-inverse .card-text,
+        .card-inverse .card-subtitle,
+        .card-inverse .card-blockquote .blockquote-footer {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .card-inverse .card-link:focus, .card-inverse .card-link:hover {
+            color: #fff;
+        }
+
+        .card-blockquote {
+            padding: 0;
+            margin-bottom: 0;
+            border-left: 0;
+        }
+
+        .card-img {
+            border-radius: calc(0.25rem - 1px);
+        }
+
+        .card-img-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1.25rem;
+        }
+
+        .card-img-top {
+            border-top-right-radius: calc(0.25rem - 1px);
+            border-top-left-radius: calc(0.25rem - 1px);
+        }
+
+        .card-img-bottom {
+            border-bottom-right-radius: calc(0.25rem - 1px);
+            border-bottom-left-radius: calc(0.25rem - 1px);
+        }
+
+        @media (min-width: 576px) {
+            .card-deck {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-flow: row wrap;
+                -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+            }
+            .card-deck .card {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -webkit-flex: 1 0 0%;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            .card-deck .card:not(:first-child) {
+                margin-left: 15px;
+            }
+            .card-deck .card:not(:last-child) {
+                margin-right: 15px;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .card-group {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-flow: row wrap;
+                -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+            }
+            .card-group .card {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1 0 0%;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+            }
+            .card-group .card + .card {
+                margin-left: 0;
+                border-left: 0;
+            }
+            .card-group .card:first-child {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+            .card-group .card:first-child .card-img-top {
+                border-top-right-radius: 0;
+            }
+            .card-group .card:first-child .card-img-bottom {
+                border-bottom-right-radius: 0;
+            }
+            .card-group .card:last-child {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+            .card-group .card:last-child .card-img-top {
+                border-top-left-radius: 0;
+            }
+            .card-group .card:last-child .card-img-bottom {
+                border-bottom-left-radius: 0;
+            }
+            .card-group .card:not(:first-child):not(:last-child) {
+                border-radius: 0;
+            }
+            .card-group .card:not(:first-child):not(:last-child) .card-img-top,
+            .card-group .card:not(:first-child):not(:last-child) .card-img-bottom {
+                border-radius: 0;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .card-columns {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+                -webkit-column-gap: 1.25rem;
+                -moz-column-gap: 1.25rem;
+                column-gap: 1.25rem;
+            }
+            .card-columns .card {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 0.75rem;
+            }
+        }
+
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#navbar-toggle').click(function () {
@@ -191,13 +517,14 @@ border-radius: 130px;" >
         <h1 style="color: #FFFFFF">Practice Coding &</h1>
         <h1 style="color: #FFFFFF">Become A Pro Programmer</h1>
     </div>
-    <div class="container">
-    <div class="panel panel-default" style="position: absolute; top: 60%; left: 5%; padding: 0px;">
-        <div class="panel-heading" style="color: #black; padding: 0px;"><a  href="#"><span style="color: black;">Can You Solve This Challenge</span></a></div>
+
+    <!--<div class="panel panel-default" style="position: absolute; top: 60%; left: 5%; padding: 0px;border: none;">
+        <div class="panel-heading" style="color: #black; padding: 0px;"><a  href="#" style="background-color: #026aaf;">
+            <span style="color: #FFFFFF;font-family: Corbel;">Can You Solve This Challenge</span></a></div>
         <div class="panel-body" style="padding: 0px;">
             <div class="col-sm-12" style="padding: 0px;">
                 <div class="col-sm-2" style="padding: 0px;">
-                    <img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;background-color: #3f3e3b;">
+                    <img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;">
                 </div>
                 <div class="col-sm-10" style="padding: 0px;">
                     <div class="panel panel-default" style="margin-left: 9%;width: 205px;height: 1.0in;">
@@ -215,8 +542,55 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
             </div>
         </div>
 
-    </div>
-    </div>
+    </div>-->
+        <!--<div class="card">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="row">
+                <div class="col-sm-2" >
+                    <img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;">
+                </div>
+                <div class="col-sm-10">
+                    <span>Testing</span>
+                </div>
+            </div>
+        </div>-->
+        <div class="card" style="position: absolute; top: 60%; left: 7%;width: 26%;">
+            <div class="card-header" style="background-color: #026aaf;color: #ffffff;font-family: Corbel;
+            height: 28px;font-size: 16px;text-align: center;">
+                Can You Solve this Challenge ?
+            </div>
+            <div class="card-body">
+
+                        <div class="col-sm-2" style="padding: 0px;"><img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;"></div>
+                        <div  class="col-sm-10" style="padding: 0px;">
+                            <div class="panel-default" style="border-radius:0px;height: 1.0in;">
+                                <div class="panel-heading" style="background-color: white;color: #black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;"><span style="color: black;padding-left: 2%;">Facing weird problem lately tried.</span></div>
+                                <div class="panel-body" style="padding: 0px;"><span style="color: black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;padding: 0px;">
+                        <p style="overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;">Description: </p>
+                           <p style="overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;">Peter wants to generate some prime numbers for his cryptosystem. Help him! Your task is
+                               to generate all prime numbers between two given numbers! </p>
+                        </span></div>
+                            </div>
+
+                    </div>
+            </div>
+            <div class="card-footer" style="background-color: #FFFFFF;">
+                <img th:src="@{css/images/footer-1.png}" alt="Smiley face" style="height: 0.2in;"><span>Medium</span>
+                <img th:src="@{css/images/footer-2.png}" alt="Smiley face" style="height: 0.2in;"><span>2 points</span>
+                <img th:src="@{css/images/footer-3.png}" alt="Smiley face" style="height: 0.2in;"><span>22060</span>
+                <img th:src="@{css/images/footer-4.png}" alt="Smiley face" style="height: 0.2in;"><span>602149</span>
+
+            </div>
+        </div>
+
+    <button type="button" class="btn btn-primary btn-md" style="position: absolute; top: 88%; left: 11%;">Sign Up Now !</button>
+
     <div style="position: absolute;top: 2%;left: 50%;">
 
        <a  href="/"><span>Home</span></a>
@@ -225,11 +599,48 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
         <a href="#price"><span>Pricing</span></a>
         <a href="/login"><span>Login/Sign Up</span></a>
     </div>
-    <div>
-        Testing
-    </div>
 
 
 
 </div>
+    <div  class="container mySpace" style="width: 100%;">
+
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-2" style="text-align: center;margin: 1%;">
+                    <img th:src="@{css/images/practiceCoding.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br>
+                    <span>Practice Coding Through Challenges</span>
+                </div>
+                <div class="col-sm-2" style="text-align: center;margin: 1%;">
+                    <img th:src="@{css/images/earnPOints.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br>
+                    <span>Earn points on every problem solved</span>
+                </div>
+                <div class="col-sm-2" style="text-align: center;margin: 1%;">
+                    <img th:src="@{css/images/recognized.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br>
+                    <span>
+                        Get recognized by getting on the leaderboard
+                    </span>
+                </div>
+                <div class="col-sm-2" style="text-align: center;margin: 1%;">
+                    <img th:src="@{css/images/strategy.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br>
+                    <span>
+                        Learn strategies to approach every challenge through webinars
+                    </span>
+                </div>
+                <div class="col-sm-2" style="text-align: center;margin: 1%;">
+                    <img th:src="@{css/images/improveLevel.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br>
+                    <span>
+                        Improve your level from 'Beginner' to all the way to 'Pro' Earn PayTM cashback on each level enhancement
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </header>
