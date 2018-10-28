@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/profile").hasAnyRole("USER,SUPER_ADMIN")
 				.antMatchers("/users").hasRole("SUPER_ADMIN")
 				.and().formLogin().loginPage("/login").permitAll()
-				.defaultSuccessUrl("/profile").and().logout()
+				.defaultSuccessUrl("/home").and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/?logout").permitAll().logoutSuccessUrl("/login");
 	}
