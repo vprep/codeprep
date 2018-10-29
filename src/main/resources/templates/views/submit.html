@@ -1,10 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+
+
+<div layout:fragment="content" class="container mySpace">
 <body>
-$END$
+
+<script>
+    SEC_HTTPS = true;
+    SEC_BASE = "compilers.widgets.sphere-engine.com";
+    (function(d, s, id){ SEC = window.SEC || (window.SEC = []);
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
+        js.src = (SEC_HTTPS ? "https" : "http") + "://" + SEC_BASE + "/static/sdk/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, "script", "sphere-engine-compilers-jssdk"));
+</script>
+<script>SEC.ready=function(e){"loading"!=document.readyState&&"interactive"!=document.readyState?e():window.addEventListener("load",e)};</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+    #example-widget{
+        margin-left: 10%;
+        min-height :700px !important;
+
+    }
+    #input-tab{
+        display: none;
+
+    }
+    #output-tab{
+        display: none;
+    }
+    </style>
+<div data-id="example-widget" style="margin-left: 10%;margin-top: 100px;" class="sec-widget" data-widget="936acde44c966c437a5aec3848d1968f"></div>
+<script>
+    window.onload = function () {
+        document.getElementById("input-tab").style.display="none"
+    }
+    setInterval(myFunction, 5000);
+    function myFunction() {
+        console.log("1");
+
+    }
+    $( document ).ready(function() {
+        console.log( "ready!" );
+
+
+        $("#example-widget").css('margin-left',"10%");
+        $("#example-widget").css('margin-left',"0%");
+        $("#example-widget").css('minimum-height',"700px;");
+        alert("ready");
+    });
+
+
+    SEC.ready(function() {
+        $("#output-tab").hide();
+        $("#input-tab").hide();
+
+        $("#example-widget").css('margin-left',"10%");
+        $("#example-widget").css('margin-left',"0%");
+        $("#example-widget").css('minimum-height',"700px;");
+      /*  var checkStatus = function(data) {
+            $('#result')
+                .append("<br><br>")
+                .append("> submissionId: " + data.submissionId + "<br>")
+                .append("> statusNumber: " + data.statusNumber + "<br>")
+                .append("> statusDescription: " + data.statusDescription + "<br>")
+                .append("> submissionMemory: " + data.submissionMemory + "<br>")
+                .append("> submissionTime: " + data.submissionTime + "<br>");
+            $('#result').scrollTop($('#result').prop("scrollHeight"));
+        };*/
+        var SECWidget = SEC.widget("example-widget");
+        SECWidget.events.subscribe('checkStatus', checkStatus);
+    });
+</script>
+
+
 </body>
+</div>
 </html>
+
