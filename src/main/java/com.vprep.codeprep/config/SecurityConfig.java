@@ -40,11 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests().antMatchers("/register", "/", "/about", "/login", "/css/**", "/webjars/**","role/**").permitAll()
 				.antMatchers("/profile").hasAnyRole("USER,SUPER_ADMIN")
+				.antMatchers("/home").hasAnyRole("USER,SUPER_ADMIN")
 				.antMatchers("/users").hasRole("SUPER_ADMIN")
 				.and().formLogin().loginPage("/login").permitAll()
 				.defaultSuccessUrl("/home").and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/?logout").permitAll().logoutSuccessUrl("/login");
+				.logoutSuccessUrl("/?logout").permitAll().logoutSuccessUrl("/home");
 	}
 
 }
