@@ -1,12 +1,14 @@
 package com.vprep.codeprep.services;
 
 
+import com.vprep.codeprep.converter.VOToDomainConverter;
 import com.vprep.codeprep.dao.UserDAO;
 import com.vprep.codeprep.entities.Role;
 import com.vprep.codeprep.entities.User;
 import com.vprep.codeprep.repositories.RoleRepository;
 import com.vprep.codeprep.repositories.UserRepository;
 import com.vprep.codeprep.vo.ProfileVO;
+import com.vprep.codeprep.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,14 +29,24 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
-	public void createUser(User user) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		user.setPassword(encoder.encode(user.getPassword()));
-		Role userRole = new Role("USER");
+	public User createUser(UserVO userVO) {
+		User user = VOToDomainConverter.convertUserVO(userVO);
+		Role role = roleRepository.findByName("SUPER_ADMIN");
 		List<Role> roles = new ArrayList<>();
-		roles.add(userRole);
+		if(role != null){
+			roles.add(role);
+		} else {
+			role = new Role();
+			role.setName("USER");
+			roles.add(role);
+		}
 		user.setRoles(roles);
-		userRepository.save(user);
+		User user1 = userRepository.findByEmail(user.getEmail());
+		if(user1 == null){
+			return userRepository.save(user);
+		} else {
+			throw new RuntimeException("User already exists");
+		}
 	}
 	
 	public void createAdmin(User user) {

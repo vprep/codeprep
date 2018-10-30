@@ -522,8 +522,22 @@
 
         });
     </script>
+    <style>
+        .code-font {
+            font-family: helvetica;
+        }
 
-<div class="topnav container-fluid" style="margin-bottom: 10%;">
+        .bottom-image {
+            height: 160px;
+        }
+
+        .bottom-font {
+            font-size: 15px;
+        }
+
+    </style>
+
+<div class="topnav container-fluid" style="margin-bottom: 15%;padding: 0px;">
     <img th:src="@{css/images/homeImage.png}" alt="Smiley face"  style="height: 500px;width: 100%;">
     <img th:src="@{css/images/Gif.gif}" alt="Smiley face" style="position: absolute;left: 57%; top: 15%; height: 67%;
 border-radius: 130px;" >
@@ -531,8 +545,8 @@ border-radius: 130px;" >
         <a href="#logo"><img th:src="@{css/images/Logo.png}" alt="Smiley face" style="width: 1.03in;height: 0.79in;"></a>
     </div>
     <div style="position: absolute; top: 25%; left: 5%;">
-        <h1 style="color: #FFFFFF">Practice Coding &</h1>
-        <h1 style="color: #FFFFFF">Become A Pro Programmer</h1>
+        <h1 class="code-font" style="color: #FFFFFF;">Practice Coding &</h1>
+        <h1 class="code-font" style="color: #FFFFFF;">Become A Pro Programmer</h1>
     </div>
 
     <!--<div class="panel panel-default" style="position: absolute; top: 60%; left: 5%; padding: 0px;border: none;">
@@ -573,31 +587,31 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
                 </div>
             </div>
         </div>-->
-        <div class="card" style="position: absolute; top: 60%; left: 7%;width: 26%;">
-            <div class="card-header" style="background-color: #026aaf;color: #ffffff;font-family: Corbel;
-            height: 28px;font-size: 16px;text-align: center;">
+        <div class="card" style="position: absolute; top: 60%; left: 7%;width: 26%;background-color: #026aaf;border-top-right-radius: 20px;border-top-left-radius: 20px;">
+            <div class="card-header code-font" style="background-color: #026aaf;color: #ffffff;
+            height: 38px;font-size: 16px;text-align: center;border-top-right-radius: 20px;border-top-left-radius: 20px;">
                 Can You Solve this Challenge ?
             </div>
-            <div class="card-body">
+            <div class="card-body code-font" style="background-color: #FFFFFF;">
 
                         <div class="col-sm-2" style="padding: 0px;"><img th:src="@{css/images/homeLogo.png}" alt="Smiley face" style="height: 1.0in;"></div>
                         <div  class="col-sm-10" style="padding: 0px;">
                             <div class="panel-default" style="border-radius:0px;height: 1.0in;padding-left: 2%;">
-                                <div class="panel-heading" style="background-color: white;color: #black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
-white-space: nowrap;"><span style="color: black;padding-left: 2%;">Facing weird problem lately tried.</span></div>
+                                <div class="panel-heading code-font" style="color: #black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
+white-space: nowrap;border: none;"><span style="color: black;padding-left: 2%;font-size: 16px;"><b>Facing weird problem lately tried.</b></span></div>
                                 <div class="panel-body" style="padding: 0px;padding-left: 2%;"><span style="color: black;padding: 0px;overflow: hidden;text-overflow: ellipsis;
 white-space: nowrap;padding: 0px;">
                         <p style="overflow: hidden;text-overflow: ellipsis;
-white-space: nowrap;">Description: </p>
+white-space: nowrap;margin: 0px;">Description: </p>
                            <p style="overflow: hidden;text-overflow: ellipsis;
-white-space: nowrap;">Peter wants to generate some prime numbers for his cryptosystem. Help him! Your task is
+white-space: nowrap;">Peter wants to generate some prime numbers <br> for his cryptosystem. Help him! Your task is
                                to generate all prime numbers between two given numbers! </p>
                         </span></div>
                             </div>
 
                     </div>
             </div>
-            <div class="card-footer" style="background-color: #FFFFFF;">
+            <div class="card-footer code-font" style="background-color: #FFFFFF;">
                 <img th:src="@{css/images/footer-1.png}" alt="Smiley face" style="height: 0.2in;"><span>Medium</span>
                 <img th:src="@{css/images/footer-2.png}" alt="Smiley face" style="height: 0.2in;"><span>2 points</span>
                 <img th:src="@{css/images/footer-3.png}" alt="Smiley face" style="height: 0.2in;"><span>22060</span>
@@ -607,7 +621,8 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
         </div>
     <div class="container" style="min-height: 2vh;">
 
-    <button type="button"  class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="position: absolute; top: 88%; left: 11%;">Sign Up Now !</button>
+    <button type="button"  class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="position: absolute; top: 88%; left: 14%;
+    border-radius: 10px;padding-left: 2%;padding-right: 2%;background-color: #026aaf;font-size: 20px;">Sign Up Now !</button>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
@@ -662,9 +677,9 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
                                             </div>
                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                         </form>
-                                        <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                        <form id="register-form" action="/register" method="post" role="form" style="display: none;">
                                             <div class="form-group">
-                                                <input type="text" name="username" id="username" tabindex="1" style="border: 1px solid #ccc;" class="form-control" placeholder="Username" value="">
+                                                <input type="text" name="userName" id="username" tabindex="1" style="border: 1px solid #ccc;" class="form-control" placeholder="Username" value="">
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
@@ -675,6 +690,7 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
                                             <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
                                             </div>
+                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
@@ -701,7 +717,7 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
 
 
 
-    <div style="position: absolute;top: 2%;left: 50%;">
+    <div class="code-font" style="position: absolute;top: 2%;left: 50%;">
 
        <a  href="/"><span>Home</span></a>
         <a href="#practice"><span>Practice Coding</span></a>
@@ -713,38 +729,39 @@ white-space: nowrap;">Peter wants to generate some prime numbers for his cryptos
 
 
 </div>
-    <div  class="container mySpace" style="width: 100%;">
+    <div  class="container mySpace" style="width: 100%;padding: 0px;">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="height: 400px;">
             <div class="row">
-                <div class="col-sm-2" style="text-align: center;margin: 1%;">
-                    <img th:src="@{css/images/practiceCoding.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
-                    <br>
-                    <span>Practice Coding Through Challenges</span>
+
+                <div class="col-sm-2 bottom-image" style="text-align: center;margin: 1.5%;">
+                    <img class="bottom-image" th:src="@{css/images/practiceCoding.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br><br>
+                    <span class="bottom-font">Practice Coding Through Challenges</span>
                 </div>
-                <div class="col-sm-2" style="text-align: center;margin: 1%;">
-                    <img th:src="@{css/images/earnPOints.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
-                    <br>
-                    <span>Earn points on every problem solved</span>
+                <div class="col-sm-2 bottom-image" style="text-align: center;margin: 1.5%;">
+                    <img class="bottom-image" th:src="@{css/images/earnPoints.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br><br>
+                    <span class="bottom-font">Earn points on every problem solved</span>
                 </div>
-                <div class="col-sm-2" style="text-align: center;margin: 1%;">
-                    <img th:src="@{css/images/recognized.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
-                    <br>
-                    <span>
+                <div class="col-sm-2 bottom-image" style="text-align: center;margin: 1.5%;">
+                    <img class="bottom-image" th:src="@{css/images/recognized.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br><br>
+                    <span class="bottom-font">
                         Get recognized by getting on the leaderboard
                     </span>
                 </div>
-                <div class="col-sm-2" style="text-align: center;margin: 1%;">
-                    <img th:src="@{css/images/strategy.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
-                    <br>
-                    <span>
+                <div class="col-sm-2 bottom-image" style="text-align: center;margin: 1.5%;">
+                    <img class="bottom-image" th:src="@{css/images/strategy.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br><br>
+                    <span class="bottom-font">
                         Learn strategies to approach every challenge through webinars
                     </span>
                 </div>
-                <div class="col-sm-2" style="text-align: center;margin: 1%;">
-                    <img th:src="@{css/images/improveLevel.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
-                    <br>
-                    <span>
+                <div class="col-sm-2 bottom-image" style="text-align: center;margin: 1.5%;">
+                    <img class="bottom-image" th:src="@{css/images/improveLevel.png}" alt="Smiley face" style="height: 189.1px;padding-right: 2%;">
+                    <br><br>
+                    <span class="bottom-font">
                         Improve your level from 'Beginner' to all the way to 'Pro' Earn PayTM cashback on each level enhancement
                     </span>
                 </div>
