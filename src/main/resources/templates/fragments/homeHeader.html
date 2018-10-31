@@ -621,8 +621,8 @@ white-space: nowrap;">Peter wants to generate some prime numbers <br> for his cr
         </div>
     <div class="container" style="min-height: 2vh;">
 
-    <button type="button"  class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="position: absolute; top: 88%; left: 14%;
-    border-radius: 10px;padding-left: 2%;padding-right: 2%;background-color: #026aaf;font-size: 20px;">Sign Up Now !</button>
+    <button type="button"  class="btn btn-primary btn-md"  style="position: absolute; top: 88%; left: 14%;
+    border-radius: 10px;padding-left: 2%;padding-right: 2%;background-color: #026aaf;font-size: 20px;"><a href="/login">Sign Up Now !</a></button>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
@@ -675,7 +675,7 @@ white-space: nowrap;">Peter wants to generate some prime numbers <br> for his cr
                                                     </div>
                                                 </div>
                                             </div>
-                                           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                          <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
                                         </form>
                                         <form id="register-form" action="/register" method="post" role="form" style="display: none;">
                                             <div class="form-group">
@@ -690,7 +690,7 @@ white-space: nowrap;">Peter wants to generate some prime numbers <br> for his cr
                                             <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
                                             </div>
-                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                            <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
@@ -723,7 +723,7 @@ white-space: nowrap;">Peter wants to generate some prime numbers <br> for his cr
         <a href="#practice"><span>Practice Coding</span></a>
         <a href="#learn"><span>Learn Programming</span></a>
         <a href="#price"><span>Pricing</span></a>
-        <a href="#" data-toggle="modal" data-target="#myModal"><span>Login/Sign Up</span></a>
+        <a href="/login"><span>Login/Sign Up</span></a>
     </div>
 
 

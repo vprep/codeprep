@@ -19,20 +19,25 @@ public class RegisterController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/register")
+	/*@GetMapping("/register")
 	public String registerForm(Model model) {
 
 		model.addAttribute("user", new User());
 		return "views/registerForm";
-	}
+	}*/
 	
 
-	@ResponseBody
-	@RequestMapping(value = "/register",method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public User registerUser(@RequestBody UserVO userVO, HttpServletRequest request, Model model) {
+
+	@RequestMapping(value = "/register",method = RequestMethod.GET)
+    public String registerUser(@RequestParam String userName, @RequestParam String email, @RequestParam String password) {
+		UserVO userVO = new UserVO();
+		userVO.setUserName(userName);
+		userVO.setEmail(email);
+		userVO.setPassword(password);
 
 
-		return userService.createUser(userVO);
+		userService.createUser(userVO);
+		return "redirect:/home";
 
 	}
 
@@ -42,6 +47,8 @@ public class RegisterController {
 	public String testMethod(){
 		return "testing api";
 	}
+
+
 
 
 }

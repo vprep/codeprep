@@ -301,7 +301,7 @@
 
 </head>
 <body>
-<div class="topnav container-fluid" style="margin-bottom: 10%;">
+<div class="topnav container-fluid" style="margin-bottom: 10%;padding: 0px;">
 <img th:src="@{css/images/homeImage.png}" alt="Smiley face"  style="height: 500px;width: 100%;">
 <img th:src="@{css/images/Gif.gif}" alt="Smiley face" style="position: absolute;left: 57%; top: 15%; height: 67%;
 border-radius: 130px;" >
@@ -323,12 +323,12 @@ border-radius: 130px;" >
 	<a href="/login"><span>Login/Sign Up</span></a>
 </div>
 
-	<div layout:fragment="content" class="container mySpace" style="position: absolute;top: 25%; left: 10%;">
+	<div layout:fragment="content" class="container mySpace" style="position: absolute;top: 25%; ">
 	<div class="alert alert-danger" th:if="${param.error}">
 	
      <h2>Invalid Email or Password</h2>	
 	</div>
-		<div class="container">
+		<div class="container" style="width: 60%;float: left;">
 			<div class="row">
 
 					<div class="panel panel-login">
@@ -374,9 +374,10 @@ border-radius: 130px;" >
 											</div>
 										</div>
 									</form>
-									<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+
+									<form id="register-form" action="/register" method="get" role="form" modelAttribute="user" style="display: none;">
 										<div class="form-group">
-											<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+											<input type="text" name="userName" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 										</div>
 										<div class="form-group">
 											<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
