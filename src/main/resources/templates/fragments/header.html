@@ -186,8 +186,8 @@
       </div>
       <a href="#home"><img th:src="@{css/images/Chat.png}" alt="Smiley face" style="width: auto;height:auto;padding: 22px 0 0;"></a>
       <a href="#about"><img th:src="@{css/images/Notification.png}" alt="Smiley face" style="width: auto;height:auto;padding: 22px 0 0;"></a>
-      <a href="#about" style="float: right;padding: 23px 0 0;"><img th:src="@{external/img/emma-watson.jpg}" alt="person" class="img-fluid rounded-circle" style="width: 0.68in;height:0.68in;">
-        <h2 class="h5">Emma Watson</h2></a>
+      <a href="#about" style="float: right;padding: 23px 0 0;"><img th:src="@{external/img/sample_profile.png}" alt="person" class="img-fluid rounded-circle" style="width: 0.68in;height:0.68in;">
+        <h2 class="h5" th:text="${profileVO.name}"></h2></a>
     </div>
   </div>
   <!--</nav>-->
